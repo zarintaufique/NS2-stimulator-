@@ -54,3 +54,12 @@ set ftp0 [new Application/FTP]
 $ftp0 attach-agent $tcp0
 
 set cbr0 [new Application/Traffic/CBR]
+$ns at 0.1 "$cbr0 start"
+$ns at 4.5 "$cbr0 stop"
+
+$ns at 0.5 "$ftp0 start"
+$ns at 4.0 "$ftp0 stop"
+
+$ns at 5.0 "finish"
+
+$ns run
